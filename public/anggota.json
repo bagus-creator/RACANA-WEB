@@ -1,0 +1,20 @@
+[
+  {
+    "nama": "Budi Santoso",
+    "jabatan": "Ketua",
+    "foto": "https://randomuser.me/api/portraits/men/32.jpg",
+    "email": "budi@example.com"
+  },
+  {
+    "nama": "Siti Aminah",
+    "jabatan": "Sekretaris",
+    "foto": "https://randomuser.me/api/portraits/women/44.jpg",
+    "email": "siti@example.com"
+  },
+  {
+    "nama": "Andi Pratama",
+    "jabatan": "Bendahara",
+    "foto": "https://randomuser.me/api/portraits/men/12.jpg",
+    "email": "andi@example.com"
+  }
+]
