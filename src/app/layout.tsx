@@ -26,6 +26,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "RACANA KARIADI-KARDINAH",
   description: "UKM PRAMUKA UBS",
+    icons: {
+    icon: "./logoracana.jpeg",
+  },
 };
 
 export default function RootLayout({
