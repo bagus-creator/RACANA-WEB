@@ -31,7 +31,6 @@ export default function Anggota() {
               <h3 className="text-lg font-semibold">{item.nama}</h3>
               <p className="text-yellow-300">{item.jabatan}</p>
              
-              </a>
             </div>
           ))}
         </div>
