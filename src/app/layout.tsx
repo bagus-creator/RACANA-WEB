@@ -46,7 +46,6 @@ export default function RootLayout({
       <main className={BebasNeue.className}>
          {children}
          <Anggota/>
-         <Pendaftaran/>
       </main>
       <Footer/>
       </body>
