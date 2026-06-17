@@ -49,10 +49,6 @@ export default function Home() {
 {/* About Section */}
 <section id="about" className="py-20 bg-white text-gray-800">
   <div className="container mx-auto px-6 max-w-4xl text-center">
-    {/* ... sisa kode About Anda ... */}
-  </div>
-</section>
-    
     {/* Judul dengan aksen garis bawah khas Pramuka */}
     <div className="mb-10">
       <h2 className="text-3xl font-bold text-green-950 uppercase tracking-wider">
@@ -95,6 +91,10 @@ export default function Home() {
 
     </div>
 
+  </div>
+</section>
+    
+   
   </div>
 
    </>

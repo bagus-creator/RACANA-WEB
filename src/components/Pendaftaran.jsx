@@ -15,30 +15,42 @@ export default function FormPendaftaran() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatus({ type: "", message: "" });
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setStatus({ type: "", message: "" });
 
+  try {
+    const res = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    // 1. Ambil teks mentah terlebih dahulu untuk menghindari crash pembacaan JSON
+    const textData = await res.text();
+    let data = {};
+    
     try {
-      const res = await fetch("/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) throw new Error(data.message || "Sesuatu salah terjadi");
-
-      setStatus({ type: "success", message: data.message });
-      setFormData({ nama: "", email: "", nim: "", jurusan: "" }); // Reset form
-    } catch (err) {
-      setStatus({ type: "error", message: err.message });
-    } finally {
-      setLoading(false);
+      data = JSON.parse(textData);
+    } catch (parseErr) {
+      // Jika gagal parse JSON, berarti server mengirim teks biasa (seperti "Internal Server Error")
+      throw new Error(textData || `Server merespons dengan status ${res.status}`);
     }
-  };
+
+    if (!res.ok) {
+      throw new Error(data.message || `Terjadi kesalahan (Status: ${res.status})`);
+    }
+
+    setStatus({ type: "success", message: data.message || "Pendaftaran berhasil!" });
+    setFormData({ nama: "", email: "", nim: "", jurusan: "" }); // Reset form
+  } catch (err) {
+    // Sekarang pesan eror "Internal Server Error" akan tampil rapi di UI, bukan bikin crash console
+    setStatus({ type: "error", message: err.message });
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section id="pendaftaran" className="py-20 bg-gray-100 text-gray-800">
