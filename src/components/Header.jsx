@@ -14,7 +14,7 @@ export default function Header() {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img
-            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk8BDg4OExETJhUVJk81LTVPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//AABEIAL4A9gMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAwQBAgcGBf/EAD4QAAEDAgMEBQoEBgIDAAAAAAEAAgMEEQUhMQYSQWETFCJRcQcyQlWBkZOhwdEVI2LhM1Jyx/w66666666666666666666666666666666666666666666666666666666666666666666D//Z"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmClAhp4WpqePtwho3Vh9duiJB0gFgfNyuRv0J7N4DQw&s"
             alt="Logo UKM"
             className="w-12 h-10 rounded-full"
           />
