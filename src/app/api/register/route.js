@@ -37,10 +37,12 @@ export async function POST(request) {
       { message: 'Pendaftaran berhasil disimpan ke Cloud!' },
       { status: 201 }
     );
-  } catch (error) {
+} catch (error) {
     console.error("Detail Error Backend:", error);
+    
+    // UBAH BAGIAN INI: Mengirimkan pesan error asli ke front-end agar tampil di layar form
     return NextResponse.json(
-      { message: 'Terjadi kesalahan server.', error: error.message },
+      { message: `Eror Server: ${error.message || error}` },
       { status: 500 }
     );
   }
