@@ -27,10 +27,19 @@ export default function Anggota() {
               key={item.id}
               className="bg-green-800 shadow-lg rounded-lg p-6 flex flex-col items-center hover:scale-105 transition"
             >
-             
+              <img
+                src={item.foto}
+                alt={item.nama}
+                className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-green-600"
+              />
               <h3 className="text-lg font-semibold">{item.nama}</h3>
               <p className="text-yellow-300">{item.jabatan}</p>
-             
+              <a
+                href={`mailto:${item.email}`}
+                className="mt-2 text-sm text-gray-200 hover:text-yellow-400"
+              >
+                {item.email}
+              </a>
             </div>
           ))}
         </div>
