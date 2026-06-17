@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import fetch from 'node-fetch';
 
 export function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -8,11 +9,13 @@ export function getSupabaseClient() {
     throw new Error('Konfigurasi Supabase belum dipasang di environment variables.');
   }
 
-  // Menggunakan global fetch bawaan Node.js yang dikonfigurasi khusus untuk serverless
   return createClient(supabaseUrl, supabaseAnonKey, {
+    global: {
+      fetch: fetch,
+    },
     auth: {
       persistSession: false,
-      autoRefreshToken: false
-    }
+      autoRefreshToken: false,
+    },
   });
 }
