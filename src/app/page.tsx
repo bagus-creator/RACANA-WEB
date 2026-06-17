@@ -51,7 +51,7 @@ export default function Home() {
   <div className="container mx-auto px-6 max-w-4xl text-center">
     {/* Judul dengan aksen garis bawah khas Pramuka */}
     <div className="mb-10">
-      <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+      <h2 className="text-3xl font-bold text-green-950 uppercase tracking-wider">
         Tentang Kami
       </h2>
       <div className="w-24 h-1 bg-yellow-500 mx-auto mt-3 rounded-full"></div>
