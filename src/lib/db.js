@@ -8,6 +8,7 @@ export function getSupabaseClient() {
     throw new Error('Konfigurasi Supabase belum dipasang di environment variables.');
   }
 
+  // Menggunakan global fetch bawaan Node.js yang dikonfigurasi khusus untuk serverless
   return createClient(supabaseUrl, supabaseAnonKey, {
     auth: {
       persistSession: false,
