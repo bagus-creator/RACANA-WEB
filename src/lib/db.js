@@ -1,20 +1,10 @@
-import Database from 'better-sqlite3';
-import path from 'path';
+import { createClient } from '@supabase/supabase-js';
 
-// Menyimpan file database di root proyek dengan nama pendaftaran.db
-const dbPath = path.resolve(process.cwd(), 'pendaftaran.db');
-const db = new Database(dbPath);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-// Membuat tabel pendaftar secara otomatis jika belum ada
-db.prepare(`
-  CREATE TABLE IF NOT EXISTS pendaftar (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nama TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
-    nim TEXT NOT NULL,
-    jurusan TEXT NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-  )
-`).run();
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Konfigurasi Supabase belum dipasang di file .env');
+}
 
-export default db;
+export const db = createClient(supabaseUrl, supabaseAnonKey);
