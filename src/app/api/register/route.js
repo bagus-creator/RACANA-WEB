@@ -1,5 +1,13 @@
 import { NextResponse } from 'next/server';
-import { getSupabaseClient } from '@/lib/db'; // Import fungsi helper baru
+import { getSupabaseClient } from '@/lib/db';
+import { NextResponse } from 'next/server';
+import { getSupabaseClient } from '@/lib/db';
+import fetch from 'node-fetch';
+
+// Paksa backend Next.js menggunakan node-fetch standar industri untuk mengatasi "fetch failed"
+if (!globalThis.fetch) {
+  globalThis.fetch = fetch;
+} // Import fungsi helper baru
 
 export async function POST(request) {
   try {
