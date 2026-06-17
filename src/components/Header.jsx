@@ -54,7 +54,6 @@ export default function Header() {
           <a href="#home" className="hover:text-yellow-300">Home</a>
           <a href="#about" className="hover:text-yellow-300">About</a>
           <a href="#anggota" className="hover:text-yellow-300">Anggota</a>
-        
         </nav>
       </div>
 
@@ -64,7 +63,6 @@ export default function Header() {
           <a href="#home" onClick={handleNavClick} className="block hover:text-yellow-300">Home</a>
           <a href="#about" onClick={handleNavClick} className="block hover:text-yellow-300">About</a>
           <a href="#anggota" onClick={handleNavClick} className="block hover:text-yellow-300">Anggota</a>
-        
       )}
     </header>
   );
