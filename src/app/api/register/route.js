@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/lib/db'; // Memanggil client Supabase yang baru kita buat
+import { getSupabaseClient } from '@/lib/db'; // Import fungsi helper baru
 
 export async function POST(request) {
   try {
@@ -14,14 +14,16 @@ export async function POST(request) {
       );
     }
 
-    // 2. Insert data ke tabel Supabase Cloud
-    const { data, error } = await db
+    // 2. Inisialisasi Supabase secara aman di dalam handler (Runtime)
+    const supabase = getSupabaseClient();
+
+    // 3. Insert data ke tabel Supabase Cloud
+    const { data, error } = await supabase
       .from('pendaftar')
       .insert([{ nama, email, nim, jurusan }]);
 
-    // 3. Menangani error dari database (misal data duplikat)
+    // 4. Menangani error dari database
     if (error) {
-      // Kode error '23505' di PostgreSQL artinya Unique Constraint (Email/NIM kembar)
       if (error.code === '23505') {
         return NextResponse.json(
           { message: 'Email atau NIM sudah terdaftar!' },
